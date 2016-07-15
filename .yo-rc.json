@@ -1,0 +1,23 @@
+{
+  "generator-m-ionic": {
+    "answers": {
+      "appName": "Radio",
+      "appId": "org.vonbuttlar.radio",
+      "ionicCss": false,
+      "bowerPackages": [
+        "localforage#~1.4.0"
+      ],
+      "platforms": [
+        "android",
+        "windows"
+      ],
+      "plugins": [
+        "cordova-plugin-device",
+        "cordova-plugin-splashscreen",
+        "cordova-plugin-statusbar"
+      ],
+      "appModule": "Radio",
+      "ecosystems": []
+    }
+  }
+}

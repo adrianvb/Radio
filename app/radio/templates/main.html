@@ -1,0 +1,65 @@
+<md-content layout="column">
+  <md-tabs md-border-bottom md-swipe-content flex="grow">
+    <md-tab label="favorites">
+      <md-content class="md-padding">
+        <md-list>
+          <md-list-item class="md-3-line" ng-repeat="station in ctrl.likedStations | filter:{liked:true} " ng-click="ctrl.playStation(station)">
+            <img ng-src="{{station.image_url}}" class="md-avatar" alt="{{station.title}}" />
+            <div class="md-list-item-text" layout="column">
+              <h3>{{station.title}}</h3>
+              <h4>{{station.description | truncate: 100: ' ...': true}}</h4>
+            </div>
+            <md-button class="md-icon-button md-secondary" aria-label="like" ng-click="ctrl.like(station)">
+              <md-icon ng-hide="station.liked">favorite_border</md-icon>
+              <md-icon ng-show="station.liked">favorite</md-icon>
+            </md-button>
+
+          </md-list-item>
+        </md-list>
+      </md-content>
+    </md-tab>
+
+    <md-tab label="Suche">
+      <md-content class="md-padding ">
+        <md-input-container>
+          <label>Suche</label>
+          <input ng-model="search" ng-model-options="{debounce: 600}">
+        </md-input-container>
+
+        <md-card ng-show="(ctrl.filteredStations | filter:search).length > 100">
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline" style="color: red;"><md-icon ng-hide="station.liked">report_problem</md-icon> Suchergebnisse auf 100 Sender beschränkt</span>
+            </md-card-title-text>
+
+          </md-card-title>
+
+        </md-card>
+
+        <md-list>
+          <md-list-item class="md-3-line" ng-repeat="station in ctrl.filteredStations" ng-click="ctrl.playStation(station)">
+            <img ng-src="{{station.image_url}}" class="md-avatar" alt="{{station.title}}" />
+            <div class="md-list-item-text" layout="column">
+              <h3>{{station.title}}</h3>
+              <h4>{{station.description | truncate: 100: ' ...': true}}</h4>
+            </div>
+            <md-button class="md-icon-button md-secondary" aria-label="like" ng-click="ctrl.like(station)">
+              <md-icon ng-hide="station.liked">favorite_border</md-icon>
+              <md-icon ng-show="station.liked">favorite</md-icon>
+            </md-button>
+
+          </md-list-item>
+        </md-list>
+      </md-content>
+    </md-tab>
+
+    <md-tab label="Debug">
+      <md-content class="md-padding ">
+        <p ng-repeat="message in ctrl.logStack">{{message}}</p>
+      </md-content>
+    </md-tab>
+
+  </md-tabs>
+
+  <status-bar ng-show="ctrl.currentStation.playing" audio="ctrl.audio" station="ctrl.currentStation"></status-bar>
+</md-content>

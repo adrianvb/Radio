@@ -1,0 +1,19 @@
+<md-nav-bar nav-bar-aria-label="navigation links" flex="none" style="border-top: 1px solid #ddd">
+
+  <md-content class="md-padding" layout="row" layout-align="start" flex layout-padding>
+
+    <div ng-click="ctrl.playStation()">
+      <img src="{{ctrl.station.image_url}}" height="50" width="50"/>
+    </div>
+
+    <div layout="column" layout-align="top start" flex="none" ng-click="ctrl.playStation()">
+      <span class="md-body-2">{{ctrl.station.title}} {{test}}</span>
+      <span class="md-body-1">{{ctrl.station.description | truncate:40:' ...':true}}</span>
+    </div>
+
+    <div flex="grow">
+      <md-slider min="0" max="1" ng-model="ctrl.audio.volume" md-discrete step="0.1" aria-label="red" ng-show="ctrl.audio.canPlay">
+    </div>
+  </md-content>
+  <md-progress-linear md-mode="indeterminate" ng-hide="ctrl.audio.canPlay"></md-progress-linear>
+</md-nav-bar>

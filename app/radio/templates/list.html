@@ -1,0 +1,20 @@
+<md-content layout="column">
+  <md-content class="md-padding" flex>
+    <md-list>
+      <md-list-item class="md-3-line" ng-repeat="station in ctrl.stations" ng-click="ctrl.playStation(station)">
+        <img ng-src="{{station.image_url}}" class="md-avatar" alt="{{station.title}}" />
+        <div class="md-list-item-text" layout="column">
+          <h3>{{station.title}}</h3>
+          <h4>{{station.description | truncate: 100: ' ...': true}}</h4>
+        </div>
+        <md-button class="md-icon-button md-secondary" aria-label="like" ng-click="ctrl.like(station)">
+          <md-icon ng-hide="station.liked">favorite_border</md-icon>
+          <md-icon ng-show="station.liked">favorite</md-icon>
+        </md-button>
+
+      </md-list-item>
+    </md-list>
+  </md-content>
+
+  <status-bar ng-show="ctrl.currentStation.playing" audio="ctrl.audio" station="ctrl.currentStation"></status-bar>
+</md-content>

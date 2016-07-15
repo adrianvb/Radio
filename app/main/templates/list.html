@@ -1,0 +1,39 @@
+<ion-view view-title="List">
+<!--
+    <p>Audio state: {{ctrl.audio.paused}}</p>
+
+    <button ng-click='ctrl.audio.paused ? ctrl.audio.play() : ctrl.audio.pause()'>Pause</button>
+    <button ng-click='ctrl.audio.restart()'>Stop</button>
+    <button ng-click='ctrl.audio.muting = !ctrl.audio.muting'>Mute</button>
+ -->
+
+ <ion-content scroll="false">
+
+   <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+       <div>
+         <md-input-container>
+           <label>Title</label>
+           <input ng-model="user.title">
+         </md-input-container>
+         <md-input-container>
+           <label>Email</label>
+           <input ng-model="user.email" type="email">
+         </md-input-container>
+       </div>
+     </md-content>
+
+  </ion-content>
+    <!-- content goes here -->
+    <!-- <ion-list>
+      <ion-item
+      class="item-remove-animate item-avatar item-icon-right"
+      type="item-text-wrap"
+      ui-sref="main.listDetail">
+        <img src="main/assets/images/yo@2x.png">
+        <h2>Mr. Yo</h2>
+        <p>Learn more...</p>
+      <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list> -->
+
+</ion-view>
