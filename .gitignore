@@ -26,3 +26,5 @@
 *.sublime-workspace
 
 tools/stations.json
+
+app/radio/assets/logos/*.jpg
